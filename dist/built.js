@@ -111,6 +111,8 @@ window.Shortly = Backbone.View.extend({
   model: Shortly.Link,
   url: '/links'
 });
+
+//poop
 ;Shortly.LinksView = Backbone.View.extend({
   className: 'links',
 

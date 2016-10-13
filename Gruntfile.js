@@ -53,18 +53,15 @@ module.exports = function(grunt) {
 
     watch: {
       scripts: {
-        files: [
-          'public/client/**/*.js',
-          'public/lib/**/*.js',
-        ],
-        tasks: [
-          'concat',
-          'uglify'
-        ]
+        files: ['public/client/**/*.js', 'public/lib/**/*.js'],
+        tasks: ['concat', 'uglify']
       },
       css: {
         files: 'public/*.css',
         tasks: ['cssmin']
+      },
+      options: {
+        event: ['changed']
       }
     },
 
@@ -96,7 +93,7 @@ module.exports = function(grunt) {
     'mochaTest'
   ]);
 
-  grunt.registerTask('build', ['eslint', 'test', 'concat', 'uglify', 'cssmin']);
+  grunt.registerTask('build', ['eslint', 'test', 'concat', 'uglify', 'cssmin', 'watch']);
 
   grunt.registerTask('upload', function(n) {
     if (grunt.option('prod')) {
